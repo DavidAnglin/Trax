@@ -104,7 +104,6 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
                     }
                 }
             }
-            
         }
     }
     

@@ -18,12 +18,15 @@ class EditableWaypoint: GPX.Waypoint
             longitude = newValue.longitude
         }
     }
+    
+    override var thumbnailURL: NSURL? { return imageURL }
+    override var imageURL: NSURL? { return links.first?.url }
 }
 
 extension GPX.Waypoint: MKAnnotation
 {
     // MARK: - MKAnnotation
-
+    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
@@ -33,7 +36,7 @@ extension GPX.Waypoint: MKAnnotation
     var subtitle: String? { return info }
     
     // MARK: - Links to Images
-
+    
     var thumbnailURL: NSURL? { return getImageURLofType("thumbnail") }
     var imageURL: NSURL? { return getImageURLofType("large") }
     

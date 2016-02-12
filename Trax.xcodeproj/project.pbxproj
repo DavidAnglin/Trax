@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D72A9AEA1C6E301F0022E48A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */; };
+		D7D8401B1C6E2F740056E076 /* WaypointImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */; };
+		D7D8401D1C6E2FCA0056E076 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */; };
 		D7E19E7B1C6D443300E3F62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */; };
 		D7E19E7D1C6D443300E3F62E /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19E7C1C6D443300E3F62E /* GPXViewController.swift */; };
 		D7E19E801C6D443300E3F62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E19E7E1C6D443300E3F62E /* Main.storyboard */; };
@@ -17,7 +20,6 @@
 		D7E19EAB1C6D46BA00E3F62E /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19EAA1C6D46BA00E3F62E /* ImageViewController.swift */; };
 		D7E19EAD1C6D46C000E3F62E /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19EAC1C6D46C000E3F62E /* MKGPX.swift */; };
 		D7E19EAF1C6D46C800E3F62E /* EditWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19EAE1C6D46C800E3F62E /* EditWaypointViewController.swift */; };
-		D7E19EB71C6D4BB800E3F62E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7E19EB51C6D4BB800E3F62E /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointImageViewController.swift; sourceTree = "<group>"; };
+		D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
 		D7E19E771C6D443300E3F62E /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7E19E7C1C6D443300E3F62E /* GPXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +59,6 @@
 		D7E19EAA1C6D46BA00E3F62E /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		D7E19EAC1C6D46C000E3F62E /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
 		D7E19EAE1C6D46C800E3F62E /* EditWaypointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWaypointViewController.swift; sourceTree = "<group>"; };
-		D7E19EB61C6D4BB800E3F62E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "../../../../Downloads/Swift-2.0-DEMO-Winter-2015-master/Trax Camera File-Swift-2.0/Trax/Base.lproj/LaunchScreen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +109,13 @@
 		D7E19E791C6D443300E3F62E /* Trax */ = {
 			isa = PBXGroup;
 			children = (
-				D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */,
 				D7E19E7C1C6D443300E3F62E /* GPXViewController.swift */,
-				D7E19E7E1C6D443300E3F62E /* Main.storyboard */,
 				D7E19EAE1C6D46C800E3F62E /* EditWaypointViewController.swift */,
 				D7E19EAC1C6D46C000E3F62E /* MKGPX.swift */,
 				D7E19EAA1C6D46BA00E3F62E /* ImageViewController.swift */,
+				D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */,
+				D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */,
+				D7E19E7E1C6D443300E3F62E /* Main.storyboard */,
 				D7E19EB01C6D471200E3F62E /* Supporting FIles */,
 			);
 			path = Trax;
@@ -138,7 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				D7E19EA81C6D46B400E3F62E /* GPX.swift */,
-				D7E19EB51C6D4BB800E3F62E /* LaunchScreen.xib */,
+				D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */,
+				D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */,
 				D7E19E811C6D443300E3F62E /* Assets.xcassets */,
 				D7E19E861C6D443300E3F62E /* Info.plist */,
 			);
@@ -252,7 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7E19EB71C6D4BB800E3F62E /* LaunchScreen.xib in Resources */,
+				D72A9AEA1C6E301F0022E48A /* LaunchScreen.xib in Resources */,
 				D7E19E821C6D443300E3F62E /* Assets.xcassets in Resources */,
 				D7E19E801C6D443300E3F62E /* Main.storyboard in Resources */,
 			);
@@ -280,11 +286,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E19E7D1C6D443300E3F62E /* GPXViewController.swift in Sources */,
+				D7D8401B1C6E2F740056E076 /* WaypointImageViewController.swift in Sources */,
 				D7E19E7B1C6D443300E3F62E /* AppDelegate.swift in Sources */,
 				D7E19EAF1C6D46C800E3F62E /* EditWaypointViewController.swift in Sources */,
 				D7E19EAB1C6D46BA00E3F62E /* ImageViewController.swift in Sources */,
 				D7E19EA91C6D46B400E3F62E /* GPX.swift in Sources */,
 				D7E19EAD1C6D46C000E3F62E /* MKGPX.swift in Sources */,
+				D7D8401D1C6E2FCA0056E076 /* SimpleMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,14 +334,6 @@
 				D7E19E7F1C6D443300E3F62E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D7E19EB51C6D4BB800E3F62E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D7E19EB61C6D4BB800E3F62E /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

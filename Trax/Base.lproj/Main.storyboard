@@ -82,32 +82,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-Jf-3x0">
-                                <rect key="frame" x="73" y="66" width="507" height="30"/>
+                                <rect key="frame" x="73" y="66" width="461" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBb-gT-hYc">
+                                <rect key="frame" x="542" y="66" width="38" height="30"/>
+                                <state key="normal" image="Camera"/>
+                                <connections>
+                                    <action selector="takePhoto" destination="Nn2-oa-7DQ" eventType="touchUpInside" id="byF-gz-2XQ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRg-iD-Bwk">
                                 <rect key="frame" x="20" y="104" width="560" height="488"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="4I0-db-dK8" firstAttribute="leading" secondItem="Otp-Jf-3x0" secondAttribute="leading" id="0Xv-hB-meN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FBb-gT-hYc" secondAttribute="trailing" id="2vG-a1-68s"/>
                             <constraint firstItem="4I0-db-dK8" firstAttribute="leading" secondItem="YAb-WJ-U72" secondAttribute="trailing" constant="8" symbolic="YES" id="5nc-ug-0Bp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="rRg-iD-Bwk" secondAttribute="leading" id="6LN-fY-wmJ"/>
+                            <constraint firstItem="FBb-gT-hYc" firstAttribute="top" secondItem="4I0-db-dK8" secondAttribute="bottom" constant="8" symbolic="YES" id="9un-Dq-sT8"/>
                             <constraint firstItem="Otp-Jf-3x0" firstAttribute="top" secondItem="4I0-db-dK8" secondAttribute="bottom" constant="8" symbolic="YES" id="B9T-40-cQI"/>
                             <constraint firstItem="rRg-iD-Bwk" firstAttribute="top" secondItem="Otp-Jf-3x0" secondAttribute="bottom" constant="8" symbolic="YES" id="MR4-hQ-cqr"/>
                             <constraint firstItem="Q7q-Jv-qag" firstAttribute="leading" secondItem="FXf-CS-U9o" secondAttribute="leadingMargin" id="OH4-t5-FE2"/>
+                            <constraint firstItem="FBb-gT-hYc" firstAttribute="centerY" secondItem="Otp-Jf-3x0" secondAttribute="centerY" id="OYc-da-nq5"/>
                             <constraint firstItem="Otp-Jf-3x0" firstAttribute="baseline" secondItem="Q7q-Jv-qag" secondAttribute="baseline" id="UkO-gF-bSi"/>
+                            <constraint firstItem="FBb-gT-hYc" firstAttribute="leading" secondItem="Otp-Jf-3x0" secondAttribute="trailing" constant="8" symbolic="YES" id="WOv-72-eJf"/>
                             <constraint firstItem="Otp-Jf-3x0" firstAttribute="leading" secondItem="Q7q-Jv-qag" secondAttribute="trailing" constant="8" symbolic="YES" id="cAS-8z-JGn"/>
                             <constraint firstItem="4I0-db-dK8" firstAttribute="trailing" secondItem="FXf-CS-U9o" secondAttribute="trailingMargin" id="fxa-dX-N0q"/>
                             <constraint firstItem="vdN-OI-gHc" firstAttribute="top" secondItem="rRg-iD-Bwk" secondAttribute="bottom" constant="8" symbolic="YES" id="iBr-2D-7eh"/>
                             <constraint firstItem="YAb-WJ-U72" firstAttribute="leading" secondItem="FXf-CS-U9o" secondAttribute="leadingMargin" id="phs-Hn-ol5"/>
+                            <constraint firstItem="rRg-iD-Bwk" firstAttribute="top" secondItem="FBb-gT-hYc" secondAttribute="bottom" constant="8" symbolic="YES" id="qCl-O5-N2s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rRg-iD-Bwk" secondAttribute="trailing" id="tBz-Ls-nZ8"/>
                             <constraint firstItem="4I0-db-dK8" firstAttribute="top" secondItem="wYz-qG-lBA" secondAttribute="bottom" constant="8" symbolic="YES" id="wGH-pN-PDh"/>
                             <constraint firstItem="Otp-Jf-3x0" firstAttribute="trailing" secondItem="FXf-CS-U9o" secondAttribute="trailingMargin" id="wP7-gW-9X9"/>
                             <constraint firstItem="4I0-db-dK8" firstAttribute="baseline" secondItem="YAb-WJ-U72" secondAttribute="baseline" id="yn3-yv-YUg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wP7-gW-9X9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Waypoint" id="r8L-ov-qMR">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="AhL-Ry-m6v">
@@ -201,6 +217,9 @@
             <point key="canvasLocation" x="1266" y="-731"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Camera" width="38" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VlS-et-x12"/>
     </inferredMetricsTieBreakers>

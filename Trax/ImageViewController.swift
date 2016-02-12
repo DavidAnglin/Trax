@@ -73,7 +73,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-
+    
     private var imageView = UIImageView()
     
     // convenience computed property

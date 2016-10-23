@@ -11,6 +11,8 @@ import MapKit
 
 class SimpleMapViewController: UIViewController
 {
+    // MARK: - IBOutlets -
+    
     // so simple it doesn't really have a Model
     // it just makes one of it's outlets publicly available
     // making your outlets public is not generally advised

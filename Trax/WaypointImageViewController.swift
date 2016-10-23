@@ -10,7 +10,11 @@ import UIKit
 
 class WaypointImageViewController: ImageViewController
 {
-    var waypoint: GPX.Waypoint? {
+    // MARK: - Public Variables -
+    
+    var smvc: SimpleMapViewController?
+    
+    var waypoint: Waypoint? {
         didSet {
             imageURL = waypoint?.imageURL // our super's Model
             title = waypoint?.name
@@ -18,11 +22,11 @@ class WaypointImageViewController: ImageViewController
         }
     }
     
+    // MARK: - PrepareForSegue -
+    
     // we "prepare" for the embed segue
     // by grabbing the MVC that is embedded
     // we can then update it whenever it might need it
-
-    var smvc: SimpleMapViewController?
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Embed Map" {

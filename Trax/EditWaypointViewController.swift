@@ -1,25 +1,52 @@
 import UIKit
 import MobileCoreServices
 
-class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class EditWaypointViewController: UIViewController, UINavigationControllerDelegate
 {
-    // MARK: - Public API
+    // MARK: - Private Variables -
+    private var ntfObserver: NSObjectProtocol?
+    private var itfObserver: NSObjectProtocol?
+    
+    // MARK: - Public Variables -
+    var imageView = UIImageView()
     
     var waypointToEdit: EditableWaypoint? { didSet { updateUI() } }
     
-    // MARK: - Private Implementation
+    // MARK: - IBOutlets -
+    @IBOutlet private weak var infoTextField: UITextField! { didSet { infoTextField.delegate = self } }
+    @IBOutlet private weak var nameTextField: UITextField! { didSet { nameTextField.delegate = self } }
     
-    private func updateUI() {
-        nameTextField?.text = waypointToEdit?.name
-        infoTextField?.text = waypointToEdit?.info
-        updateImage()
+    @IBOutlet weak var imageViewContainer: UIView! {
+        didSet {
+            // we put a generic UIView in our autolayout
+            // because it will shrink and grow as the space allows
+            // (versus a UIImageView which demands space to show its image)
+            // we will manage the frame of the image view ourself
+            // (in makeRoomForImage() below)
+            imageViewContainer.addSubview(imageView)
+        }
     }
+
+    // MARK: - IBActions -
     
     @IBAction private func done(sender: UIBarButtonItem) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // MARK: - View Controller Lifecycle
+    @IBAction func takePhoto()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            let picker = UIImagePickerController()
+            picker.sourceType = .Camera
+            // if we were looking for video, we'd check availableMediaTypes
+            picker.mediaTypes = [String(kUTTypeImage as NSString)]
+            picker.delegate = self
+            picker.allowsEditing = true
+            presentViewController(picker, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - View Controller Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,50 +64,16 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
         stopObservingTextFields()
     }
     
-    // MARK: - Image
+    // MARK: - Private Implementation -
     
-    var imageView = UIImageView()
-    
-    @IBOutlet weak var imageViewContainer: UIView! {
-        didSet {
-            // we put a generic UIView in our autolayout
-            // because it will shrink and grow as the space allows
-            // (versus a UIImageView which demands space to show its image)
-            // we will manage the frame of the image view ourself
-            // (in makeRoomForImage() below)
-            imageViewContainer.addSubview(imageView)
-        }
-    }
-    @IBAction func takePhoto()
-    {
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            let picker = UIImagePickerController()
-            picker.sourceType = .Camera
-            // if we were looking for video, we'd check availableMediaTypes
-            picker.mediaTypes = [String(kUTTypeImage as NSString)]
-            picker.delegate = self
-            picker.allowsEditing = true
-            presentViewController(picker, animated: true, completion: nil)
-        }
+    private func updateUI() {
+        nameTextField?.text = waypointToEdit?.name
+        infoTextField?.text = waypointToEdit?.info
+        updateImage()
     }
     
+    // MARK: - Image -
 
-
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        var image = info[UIImagePickerControllerEditedImage] as? UIImage
-        if image == nil {
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        }
-        imageView.image = image
-        makeRoomForImage()
-        saveImageInWaypoint()
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     // we save the image in the file system here, but we never remove it
     // obviously this demo is only the start of this application
     // not only would we need to manage the images in our filesystem
@@ -99,7 +92,7 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
                     let path = url.absoluteString
                     //                   if let path = url.absoluteString {
                     if imageData.writeToURL(url, atomically: true) {
-                        waypointToEdit?.links = [GPX.Link(href: path)]
+                        waypointToEdit?.links = [Link(href: path)]
                         //                       }
                     }
                 }
@@ -107,18 +100,7 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
         }
     }
     
-    // MARK: - Text Fields
-    
-    @IBOutlet private weak var infoTextField: UITextField! { didSet { infoTextField.delegate = self } }
-    @IBOutlet private weak var nameTextField: UITextField! { didSet { nameTextField.delegate = self } }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    private var ntfObserver: NSObjectProtocol?
-    private var itfObserver: NSObjectProtocol?
+    // MARK: - Notification Handling -
     
     private func startObservingTextFields()
     {
@@ -136,6 +118,8 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
         }
     }
     
+    // MARK: - Remove Notifications -
+    
     private func stopObservingTextFields()
     {
         if let observer = ntfObserver {
@@ -145,10 +129,9 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
             NSNotificationCenter.defaultCenter().removeObserver(observer)
         }
     }
-}
+    
+    // MARK: - Helpers -
 
-extension EditWaypointViewController
-{
     func updateImage() {
         if let url = waypointToEdit?.imageURL {
             let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
@@ -195,8 +178,30 @@ extension EditWaypointViewController
     }
 }
 
-extension UIImage {
-    var aspectRatio: CGFloat {
-        return size.height != 0 ? size.width / size.height : 0
+// MARK: - UITextFieldDelegate -
+
+extension EditWaypointViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate -
+
+extension EditWaypointViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        var image = info[UIImagePickerControllerEditedImage] as? UIImage
+        if image == nil {
+            image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        }
+        imageView.image = image
+        makeRoomForImage()
+        saveImageInWaypoint()
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

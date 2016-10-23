@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		D72A9AEA1C6E301F0022E48A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */; };
 		D72A9AEE1C6E41740022E48A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72A9AED1C6E41740022E48A /* Main.storyboard */; };
+		D7C2673B1DBC6B7900C389A6 /* UIViewController+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2673A1DBC6B7900C389A6 /* UIViewController+ContentView.swift */; };
+		D7C2673D1DBC6BB700C389A6 /* MKAnnotationView+Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2673C1DBC6BB700C389A6 /* MKAnnotationView+Popover.swift */; };
+		D7C267441DBC71CB00C389A6 /* UIImage+AspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C267431DBC71CB00C389A6 /* UIImage+AspectRatio.swift */; };
+		D7C267461DBC762D00C389A6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C267451DBC762D00C389A6 /* Track.swift */; };
+		D7C267481DBC764D00C389A6 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C267471DBC764D00C389A6 /* Waypoint.swift */; };
+		D7C2674A1DBC766400C389A6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C267491DBC766400C389A6 /* Entry.swift */; };
+		D7C2674C1DBC767B00C389A6 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2674B1DBC767B00C389A6 /* Link.swift */; };
+		D7C2674E1DBC76CF00C389A6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2674D1DBC76CF00C389A6 /* StringExtensions.swift */; };
 		D7D8401B1C6E2F740056E076 /* WaypointImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */; };
 		D7D8401D1C6E2FCA0056E076 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */; };
 		D7E19E7B1C6D443300E3F62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */; };
@@ -42,6 +50,14 @@
 /* Begin PBXFileReference section */
 		D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		D72A9AED1C6E41740022E48A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D7C2673A1DBC6B7900C389A6 /* UIViewController+ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentView.swift"; sourceTree = "<group>"; };
+		D7C2673C1DBC6BB700C389A6 /* MKAnnotationView+Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKAnnotationView+Popover.swift"; sourceTree = "<group>"; };
+		D7C267431DBC71CB00C389A6 /* UIImage+AspectRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+AspectRatio.swift"; sourceTree = "<group>"; };
+		D7C267451DBC762D00C389A6 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		D7C267471DBC764D00C389A6 /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		D7C267491DBC766400C389A6 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		D7C2674B1DBC767B00C389A6 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		D7C2674D1DBC76CF00C389A6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointImageViewController.swift; sourceTree = "<group>"; };
 		D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
 		D7E19E771C6D443300E3F62E /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +102,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7C2673E1DBC6FE300C389A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7C2674D1DBC76CF00C389A6 /* StringExtensions.swift */,
+				D7C267431DBC71CB00C389A6 /* UIImage+AspectRatio.swift */,
+				D7C2673C1DBC6BB700C389A6 /* MKAnnotationView+Popover.swift */,
+				D7C2673A1DBC6B7900C389A6 /* UIViewController+ContentView.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D7C2673F1DBC701500C389A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D72A9AED1C6E41740022E48A /* Main.storyboard */,
+				D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D7C267401DBC701E00C389A6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7E19E7C1C6D443300E3F62E /* GPXViewController.swift */,
+				D7E19EAA1C6D46BA00E3F62E /* ImageViewController.swift */,
+				D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */,
+				D7E19EAE1C6D46C800E3F62E /* EditWaypointViewController.swift */,
+				D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D7C267411DBC704B00C389A6 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		D7C267421DBC707000C389A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7E19EAC1C6D46C000E3F62E /* MKGPX.swift */,
+				D7E19EA81C6D46B400E3F62E /* GPX.swift */,
+				D7C2674B1DBC767B00C389A6 /* Link.swift */,
+				D7C267491DBC766400C389A6 /* Entry.swift */,
+				D7C267471DBC764D00C389A6 /* Waypoint.swift */,
+				D7C267451DBC762D00C389A6 /* Track.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		D7E19E6E1C6D443300E3F62E = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +178,11 @@
 		D7E19E791C6D443300E3F62E /* Trax */ = {
 			isa = PBXGroup;
 			children = (
-				D7E19E7C1C6D443300E3F62E /* GPXViewController.swift */,
-				D7E19EAE1C6D46C800E3F62E /* EditWaypointViewController.swift */,
-				D7E19EAC1C6D46C000E3F62E /* MKGPX.swift */,
-				D7E19EAA1C6D46BA00E3F62E /* ImageViewController.swift */,
-				D7D8401C1C6E2FCA0056E076 /* SimpleMapViewController.swift */,
-				D7D8401A1C6E2F740056E076 /* WaypointImageViewController.swift */,
-				D72A9AED1C6E41740022E48A /* Main.storyboard */,
+				D7C267421DBC707000C389A6 /* Model */,
+				D7C2673F1DBC701500C389A6 /* Views */,
+				D7C267401DBC701E00C389A6 /* View Controllers */,
+				D7C2673E1DBC6FE300C389A6 /* Extensions */,
+				D7C267411DBC704B00C389A6 /* Delegates */,
 				D7E19EB01C6D471200E3F62E /* Supporting FIles */,
 			);
 			path = Trax;
@@ -142,9 +209,6 @@
 		D7E19EB01C6D471200E3F62E /* Supporting FIles */ = {
 			isa = PBXGroup;
 			children = (
-				D7E19EA81C6D46B400E3F62E /* GPX.swift */,
-				D7E19E7A1C6D443300E3F62E /* AppDelegate.swift */,
-				D72A9AE91C6E301F0022E48A /* LaunchScreen.xib */,
 				D7E19E811C6D443300E3F62E /* Assets.xcassets */,
 				D7E19E861C6D443300E3F62E /* Info.plist */,
 			);
@@ -285,14 +349,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C2674A1DBC766400C389A6 /* Entry.swift in Sources */,
 				D7E19E7D1C6D443300E3F62E /* GPXViewController.swift in Sources */,
 				D7D8401B1C6E2F740056E076 /* WaypointImageViewController.swift in Sources */,
 				D7E19E7B1C6D443300E3F62E /* AppDelegate.swift in Sources */,
+				D7C267481DBC764D00C389A6 /* Waypoint.swift in Sources */,
+				D7C2673D1DBC6BB700C389A6 /* MKAnnotationView+Popover.swift in Sources */,
 				D7E19EAF1C6D46C800E3F62E /* EditWaypointViewController.swift in Sources */,
 				D7E19EAB1C6D46BA00E3F62E /* ImageViewController.swift in Sources */,
+				D7C2674E1DBC76CF00C389A6 /* StringExtensions.swift in Sources */,
 				D7E19EA91C6D46B400E3F62E /* GPX.swift in Sources */,
+				D7C2674C1DBC767B00C389A6 /* Link.swift in Sources */,
 				D7E19EAD1C6D46C000E3F62E /* MKGPX.swift in Sources */,
 				D7D8401D1C6E2FCA0056E076 /* SimpleMapViewController.swift in Sources */,
+				D7C267441DBC71CB00C389A6 /* UIImage+AspectRatio.swift in Sources */,
+				D7C2673B1DBC6B7900C389A6 /* UIViewController+ContentView.swift in Sources */,
+				D7C267461DBC762D00C389A6 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

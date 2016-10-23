@@ -8,8 +8,30 @@
 
 import UIKit
 
-class ImageViewController: UIViewController, UIScrollViewDelegate
+class ImageViewController: UIViewController
 {
+    
+    // MARK: - Private Variables -
+    
+    private var imageView = UIImageView()
+    
+    // convenience computed property
+    // lets us get involved every time we set an image in imageView
+    // we can do things like resize the imageView,
+    //   set the scroll view's contentSize,
+    //   and stop the spinner
+    private var image: UIImage? {
+        get { return imageView.image }
+        set {
+            imageView.image = newValue
+            imageView.sizeToFit()
+            scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
+        }
+    }
+    
+    // MARK: - Public Variables -
+    
     // our Model
     // publicly settable
     // when it changes (but only if we are on screen)
@@ -24,6 +46,40 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
             }
         }
     }
+    
+    // MARK: - IBOutlets -
+    
+    @IBOutlet private weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet private weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.contentSize = imageView.frame.size // critical to set this!
+            scrollView.delegate = self                    // required for zooming
+            scrollView.minimumZoomScale = 0.03            // required for zooming
+            scrollView.maximumZoomScale = 1.0             // required for zooming
+        }
+    }
+    
+    // MARK: - View Controller Lifecycle -
+    
+    // put our imageView into the view hierarchy
+    // as a subview of the scrollView
+    // (will install it into the content area of the scroll view)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.addSubview(imageView)
+    }
+    
+    // for efficiency, we will only actually fetch the image
+    // when we know we are going to be on screen
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if image == nil {
+            fetchImage()
+        }
+    }
+    
+    // MARK: - Fetch Image --
     
     // fetches the image at imageURL
     // does so off the main thread
@@ -56,55 +112,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
             }
         }
     }
-    
-    @IBOutlet private weak var spinner: UIActivityIndicatorView!
-    
-    @IBOutlet private weak var scrollView: UIScrollView! {
-        didSet {
-            scrollView.contentSize = imageView.frame.size // critical to set this!
-            scrollView.delegate = self                    // required for zooming
-            scrollView.minimumZoomScale = 0.03            // required for zooming
-            scrollView.maximumZoomScale = 1.0             // required for zooming
-        }
-    }
-    
-    // UIScrollViewDelegate method
+}
+
+// MARK: - UIScrollViewDelegate method -
+
+extension ImageViewController: UIScrollViewDelegate {
     // required for zooming
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
-    }
-    
-    private var imageView = UIImageView()
-    
-    // convenience computed property
-    // lets us get involved every time we set an image in imageView
-    // we can do things like resize the imageView,
-    //   set the scroll view's contentSize,
-    //   and stop the spinner
-    private var image: UIImage? {
-        get { return imageView.image }
-        set {
-            imageView.image = newValue
-            imageView.sizeToFit()
-            scrollView?.contentSize = imageView.frame.size
-            spinner?.stopAnimating()
-        }
-    }
-    
-    // put our imageView into the view hierarchy
-    // as a subview of the scrollView
-    // (will install it into the content area of the scroll view)
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        scrollView.addSubview(imageView)
-    }
-    
-    // for efficiency, we will only actually fetch the image
-    // when we know we are going to be on screen
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        if image == nil {
-            fetchImage()
-        }
     }
 }
